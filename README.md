@@ -12,3 +12,12 @@ following sessions are supported:
 
 # On GitHub
 CI is set up on `push` and `pull_request` to run the specified nox sessions.
+
+# XXX TODO
+- Bump version number based on PR label
+- Update changelog based on commit message of PR
+- Push to PyPI
+- Create release
+- Require a version bump label
+- Automatically add appropriate "thanks" to changelog entry
+- Attach artifacts to GH release

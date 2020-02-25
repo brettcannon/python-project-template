@@ -35,7 +35,7 @@ def bump_version(session, event):
         toml_data = tomlkit.loads(file.read())
 
     session.install("packaging")
-    import packaging
+    import packaging.version
 
     version = packaging.version.Version(toml_data["tool.poetry"]["version"])
     major, minor, micro, post = (

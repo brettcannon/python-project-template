@@ -15,6 +15,7 @@ python = "^3.8"
 
 [tool.poetry.dev-dependencies]
 nox = ">=2019.11.9"
+black = {version = "^19.10b0", allow-prereleases = true}
 
 
 [tool.coverage.run]

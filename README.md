@@ -9,3 +9,6 @@ following sessions are supported:
           [Black](https://black.readthedocs.io/), [mypy](http://mypy-lang.org/),
           and various file format checks; [Poetry](https://python-poetry.org)
           for package readiness)
+
+# On GitHub
+CI is set up on `push` and `pull_request` to run the specified nox sessions.

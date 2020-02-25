@@ -11,6 +11,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Set up git user
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
     - uses: actions/setup-python@v1
       with:
         python-version: "3.8"

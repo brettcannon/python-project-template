@@ -4,7 +4,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "pkg"
-version = "0.1.0"
+version = "0.2.0"
 description = "A project template for Python projects"
 authors = ["Brett Cannon <brett@python.org>"]
 license = "MIT"

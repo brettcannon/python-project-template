@@ -5,7 +5,7 @@ on: [pull_request, push]
 jobs:
   test:
 
-    name: "Test w/ Python ${{ python-version }}"
+    name: "Test w/ Python ${{ matrix.python-version }}"
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -23,7 +23,7 @@ jobs:
     - run: python -m pip install --upgrade pip
     - run: python -m pip install nox
     - run: nox --session test
-  
+
   lint:
     runs-on: ubuntu-latest
     env:

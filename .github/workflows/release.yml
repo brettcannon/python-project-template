@@ -5,7 +5,7 @@ on:
     branches: ["master"]
 
 jobs:
-  release:
+  prep:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged
 
@@ -17,3 +17,20 @@ jobs:
     - run: python -m pip install --upgrade pip
     - run: python -m pip install nox
     - run: nox --session release
+
+  build:
+    needs: [prep]
+    runs-on: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v1
+      with:
+        python-version: "3.8"
+    - run: python -m pip install --upgrade pip
+    - run: python -m pip install poetry
+    - run: poetry build
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: dist
+        path: dist

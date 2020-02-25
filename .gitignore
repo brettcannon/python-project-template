@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Ignore Poetry's lock file
-pyproject.lock
+poetry.lock

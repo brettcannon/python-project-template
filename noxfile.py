@@ -12,8 +12,9 @@ def test(session):
 
 @nox.session
 def lint(session):
-    session.install("pre-commit")
+    session.install("pre-commit", "poetry")
     session.run("pre-commit", "run", "--all-files")
+    session.run("poetry", "build")
 
 
 @nox.session

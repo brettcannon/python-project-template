@@ -1,3 +1,22 @@
+[build-system]
+requires = ["poetry>=1.0.3"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "pkg"
+version = "0.1.0"
+description = "A project template for Python projects"
+authors = ["Brett Cannon <brett@python.org>"]
+license = "MIT"
+repository = "https://github.com/brettcannon/python-project-template"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+nox = ">=2019.11.9"
+
+
 [tool.coverage.run]
 branch = true
 

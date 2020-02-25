@@ -105,6 +105,6 @@ def release(session):
         return  # Nothing to do.
     entry = update_changelog(session, event, new_version)
     session.run("git", "commit", "-a", "-m", f"Updates for v{new_version}")
-    session.run("git", "push", "--force")
+    session.run("git", "push")
     session.run("git", "tag", "-a", f"v{new_version}", "-m", entry)
     session.run("git", "push", "--tags")

@@ -22,7 +22,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - run: python -m pip install --upgrade pip
     - run: python -m pip install nox
-    - run: nox --session test
+    - run: nox --session test-${{ matrix.python-version }}
 
   lint:
     runs-on: ubuntu-latest

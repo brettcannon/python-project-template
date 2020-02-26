@@ -28,13 +28,13 @@ def docs(session):
 def bump_version(session, event):
     labels = {label["name"] for label in event["pull_request"]["labels"]}
 
-    session.install("tomlkit")
+    #session.install("tomlkit")
     import tomlkit
 
     with open("pyproject.toml", encoding="utf-8") as file:
         toml_data = tomlkit.loads(file.read())
 
-    session.install("packaging")
+    #session.install("packaging")
     import packaging.version
 
     version = packaging.version.Version(toml_data["tool"]["poetry"]["version"])
@@ -70,7 +70,7 @@ CHANGLELOG_TEMPLATE = """# {version}
 
 
 def update_changelog(session, event, new_version):
-    session.install("httpx")
+    #session.install("httpx")
     import httpx
 
     message = event["pull_request"]["title"]

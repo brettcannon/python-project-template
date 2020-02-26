@@ -64,9 +64,7 @@ def bump_version(session, event):
 
 
 CHANGLELOG_TEMPLATE = """# {version}
-{message}
-
-Thanks [{author_name}]({author_url})
+{message} (thanks [{author_name}]({author_url}))
 
 """
 
@@ -78,7 +76,9 @@ def update_changelog(session, event, new_version):
     message = event["pull_request"]["title"]
     pr_number = event["number"]
     pr_url = event["pull_request"]["html_url"]
+    print(message)
     message = message.replace(f"#{pr_number}", f"[#{pr_number}]({pr_url})")
+    print(message)
     author_data = httpx.get(event["pull_request"]["user"]["url"]).json()
     author_name = author_data["name"]
     author_url = author_data["html_url"]

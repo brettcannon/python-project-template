@@ -28,7 +28,7 @@ def docs(session):
 def bump_version(session, event):
     import packaging.version
     import tomlkit
-    
+
     labels = {label["name"] for label in event["pull_request"]["labels"]}
     with open("pyproject.toml", encoding="utf-8") as file:
         toml_data = tomlkit.loads(file.read())
@@ -97,7 +97,9 @@ def release(session):
     if not (new_version := bump_version(session, event)):
         return  # Nothing to do.
     entry = update_changelog(session, event, new_version)
-    session.run("git", "commit", "-a", "-m", f"Updates for v{new_version}", external=True)
+    session.run(
+        "git", "commit", "-a", "-m", f"Updates for v{new_version}", external=True
+    )
     session.run("git", "push", external=True)
     session.run("git", "tag", "-a", f"v{new_version}", "-m", entry, external=True)
     session.run("git", "push", "--tags", external=True)

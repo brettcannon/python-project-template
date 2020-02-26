@@ -13,6 +13,12 @@ following sessions are supported:
 # On GitHub
 CI is set up on `push` and `pull_request` to run the specified nox sessions.
 
+On PR merge, the repository is updated to be ready for release:
+1. The version in `pyproject.toml` gets bumped as appropriate based on
+the `impact` label applied to the PR
+1. An entry in the changelog is added based on the title line of the commit message
+1. sdist and wheels are built via `poetry build`
+
 # XXX TODO
 - Push to PyPI
 - Require a version bump label

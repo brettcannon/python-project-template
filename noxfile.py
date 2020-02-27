@@ -1,4 +1,3 @@
-import importlib
 import json
 import re
 
@@ -27,9 +26,6 @@ def docs(session):
 
 
 def bump_version(session, event):
-    session.install("packaging", "tomlkit")
-    importlib.invalidate_caches()
-
     import packaging.version
     import tomlkit
 

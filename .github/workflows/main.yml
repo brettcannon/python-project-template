@@ -8,7 +8,6 @@ on:
 
 jobs:
   test:
-
     name: "test w/ Python ${{ matrix.python-version }}"
     runs-on: ubuntu-latest
     strategy:
@@ -49,3 +48,28 @@ jobs:
     - run: python -m pip install --upgrade pip
     - run: python -m pip install nox
     - run: nox --session lint
+
+  deploy:
+    needs: [test, lint]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.ref == 'refs/heads/master' && github.event.action == 'closed' && github.github.event.pull_request.merged
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up git user
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+    - uses: actions/setup-python@v1
+      with:
+        python-version: "3.8"
+    - run: python -m pip install --upgrade pip
+    - run: python -m pip install httpx nox packaging tomlkit
+    - run: nox --session release
+    - run: python -m pip install poetry
+    - run: poetry build
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: dist
+        path: dist

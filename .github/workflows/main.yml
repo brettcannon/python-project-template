@@ -52,7 +52,7 @@ jobs:
   deploy:
     needs: [test, lint]
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.ref == 'refs/heads/master' && github.event.action == 'closed' && github.github.event.pull_request.merged
+    if: github.event_name == 'pull_request' && github.ref == 'refs/heads/master' && github.event.action == 'closed' && github.event.pull_request.merged
 
     steps:
     - uses: actions/checkout@v2

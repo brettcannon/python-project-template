@@ -1,25 +1,3 @@
-This repository contains an example Python project for use on GitHub.
-
-# Local Usage
-[Nox](https://nox.thea.codes/) is used to run checks against the code. The
-following sessions are supported:
-- `test` (using [pytest](https://docs.pytest.org/) and
-          [coverage.py](https://coverage.readthedocs.io/))
-- `lint` (using [pre-commit](https://pre-commit.com/) for
-          [Black](https://black.readthedocs.io/), [mypy](http://mypy-lang.org/),
-          and various file format checks; [Poetry](https://python-poetry.org)
-          for package readiness)
-
-# On GitHub
-CI is set up on `push` and `pull_request` to run the specified nox sessions.
-
-On PR merge, the repository is updated to be ready for release:
-1. The version in `pyproject.toml` gets bumped as appropriate based on
-the `impact` label applied to the PR
-1. An entry in the changelog is added based on the title line of the commit message
-1. sdist and wheels are built via `poetry build`
-
-# XXX TODO
-- Push to PyPI
-- Require a version bump label
-- Attach artifacts to GH release
+This repository contains an example Python project for use on GitHub. It
+current exists so I can play around with project configuration to try and find
+a workflow that I really like.

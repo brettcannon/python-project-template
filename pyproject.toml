@@ -1,22 +1,16 @@
 [build-system]
-requires = ["poetry>=1.0.3"]
-build-backend = "poetry.masonry.api"
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
 
-[tool.poetry]
-name = "pkg"
-version = "0.4.0.post2"
-description = "A project template for Python projects"
-authors = ["Brett Cannon <brett@python.org>"]
-license = "MIT"
-repository = "https://github.com/brettcannon/python-project-template"
+[tool.flit.metadata]
+module = "pkg"
+author = "Brett Cannon"
+author-email = "brett@python.org"
+home-page = "https://github.com/brettcannon/python-project-template"
 
-[tool.poetry.dependencies]
-python = "^3.8"
-
-[tool.poetry.dev-dependencies]
-nox = ">=2019.11.9"
-black = {version = "^19.10b0", allow-prereleases = true}
-
+[tool.flit.metadata.requires-extra]
+test = ["coverage[toml]", "pytest"]
+dev = ["pre-commit"]
 
 [tool.coverage.run]
 branch = true

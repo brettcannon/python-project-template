@@ -22,7 +22,7 @@ repos:
   rev: 3.8.3
   hooks:
   - id: flake8
-# - repo: https://github.com/microsoft/pyright
-#   rev: 1.1.53
-#   hooks:
-#   - id: pyright
+- repo: https://github.com/necaris/pre-commit-pyright
+  rev: 1.1.53
+  hooks:
+  - id: pyright

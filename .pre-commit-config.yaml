@@ -22,7 +22,7 @@ repos:
   rev: 3.8.3
   hooks:
   - id: flake8
-- repo: local
+- repo: local  # Mirror hook at https://github.com/necaris/pre-commit-pyright.
   hooks:
   - id: pyright
     name: pyright

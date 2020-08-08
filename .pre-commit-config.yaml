@@ -22,6 +22,10 @@ repos:
   rev: 3.8.3
   hooks:
   - id: flake8
+- repo: https://github.com/timothycrosley/isort
+  rev: 5.3.2
+  hooks:
+  - id: isort
 - repo: local  # Mirror hook at https://github.com/necaris/pre-commit-pyright.
   hooks:
   - id: pyright
